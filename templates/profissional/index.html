@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconhecimento Profissional - Memória Digital</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Audio Background -->
+    <audio id="backgroundMusic" loop>
+        <source src="corporate-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Music Control -->
+    <div class="music-control">
+        <button id="musicToggle" class="music-btn">
+            <i class="fas fa-music"></i>
+        </button>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="corporate-decoration">
+                <img src="corporate-decoration.png" alt="Decoração" class="decoration-img">
+            </div>
+            <h1 class="main-title editable" data-field="title">Reconhecimento de Excelência</h1>
+            <p class="subtitle editable" data-field="subtitle">Celebrando sua dedicação e conquistas profissionais</p>
+            <div class="achievement-badge">
+                <img src="achievement-icon.png" alt="Conquista" class="achievement-img">
+            </div>
+        </header>
+
+        <!-- Professional Profile Section -->
+        <section class="profile-section">
+            <div class="profile-card">
+                <div class="profile-image-container">
+                    <img src="achievement-icon.png" alt="Foto Profissional" class="profile-img editable-image" data-field="profile-photo">
+                </div>
+                <div class="profile-info">
+                    <h2 class="profile-name editable" data-field="employee-name">Nome do Funcionário</h2>
+                    <p class="profile-position editable" data-field="employee-position">Cargo/Posição</p>
+                    <p class="profile-department editable" data-field="employee-department">Departamento</p>
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span class="stat-number editable" data-field="years-company">5</span>
+                            <span class="stat-label">Anos na Empresa</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number editable" data-field="projects-completed">47</span>
+                            <span class="stat-label">Projetos Concluídos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section class="achievements-section">
+            <h2 class="section-title editable" data-field="achievements-title">Principais Conquistas</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">🏆</div>
+                    <h3 class="achievement-title editable" data-field="achievement1-title">Funcionário do Ano</h3>
+                    <p class="achievement-desc editable" data-field="achievement1-desc">Reconhecimento pela excelência em desempenho e dedicação</p>
+                    <span class="achievement-date editable" data-field="achievement1-date">2024</span>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">📈</div>
+                    <h3 class="achievement-title editable" data-field="achievement2-title">Liderança em Resultados</h3>
+                    <p class="achievement-desc editable" data-field="achievement2-desc">Superou metas em 150% no último trimestre</p>
+                    <span class="achievement-date editable" data-field="achievement2-date">Q4 2024</span>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">🎯</div>
+                    <h3 class="achievement-title editable" data-field="achievement3-title">Inovação e Criatividade</h3>
+                    <p class="achievement-desc editable" data-field="achievement3-desc">Implementou soluções que otimizaram processos</p>
+                    <span class="achievement-date editable" data-field="achievement3-date">2024</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Journey Timeline -->
+        <section class="timeline-section">
+            <h2 class="section-title editable" data-field="timeline-title">Trajetória Profissional</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date editable" data-field="date1">Janeiro 2020</div>
+                        <h3 class="timeline-event editable" data-field="event1">Início na Empresa</h3>
+                        <p class="timeline-description editable" data-field="desc1">Ingressou como Analista Júnior, demonstrando desde o início grande potencial</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date editable" data-field="date2">Junho 2022</div>
+                        <h3 class="timeline-event editable" data-field="event2">Primeira Promoção</h3>
+                        <p class="timeline-description editable" data-field="desc2">Promovido a Analista Pleno por mérito e excelente desempenho</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date editable" data-field="date3">Dezembro 2024</div>
+                        <h3 class="timeline-event editable" data-field="event3">Reconhecimento Atual</h3>
+                        <p class="timeline-description editable" data-field="desc3">Celebrando suas conquistas e contribuições excepcionais</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills & Competencies -->
+        <section class="skills-section">
+            <h2 class="section-title editable" data-field="skills-title">Competências e Habilidades</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 class="skill-category-title editable" data-field="technical-skills-title">Habilidades Técnicas</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span class="skill-name editable" data-field="skill1">Gestão de Projetos</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name editable" data-field="skill2">Análise de Dados</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name editable" data-field="skill3">Liderança</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="skill-category-title editable" data-field="soft-skills-title">Habilidades Interpessoais</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag editable" data-field="soft-skill1">Comunicação</span>
+                        <span class="skill-tag editable" data-field="soft-skill2">Trabalho em Equipe</span>
+                        <span class="skill-tag editable" data-field="soft-skill3">Resolução de Problemas</span>
+                        <span class="skill-tag editable" data-field="soft-skill4">Adaptabilidade</span>
+                        <span class="skill-tag editable" data-field="soft-skill5">Proatividade</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recognition Message -->
+        <section class="message-section">
+            <div class="message-card">
+                <h2 class="message-title editable" data-field="message-title">Mensagem de Reconhecimento</h2>
+                <div class="message-content">
+                    <p class="message-text editable" data-field="message">
+                        É com grande satisfação que reconhecemos sua dedicação excepcional e contribuições valiosas 
+                        para nossa organização. Seu profissionalismo, competência e comprometimento são exemplares 
+                        e inspiram toda a equipe. Agradecemos por sua excelência contínua e esperamos continuar 
+                        contando com seu talento e dedicação nos próximos desafios.
+                    </p>
+                </div>
+                <div class="signature">
+                    <p class="signature-text editable" data-field="signature">Diretoria Executiva</p>
+                    <p class="signature-company editable" data-field="company">[Nome da Empresa]</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Company Values -->
+        <section class="values-section">
+            <h2 class="section-title editable" data-field="values-title">Valores que Você Representa</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">💼</div>
+                    <h3 class="value-title editable" data-field="value1-title">Profissionalismo</h3>
+                    <p class="value-desc editable" data-field="value1-desc">Demonstra excelência em todas as atividades</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3 class="value-title editable" data-field="value2-title">Colaboração</h3>
+                    <p class="value-desc editable" data-field="value2-desc">Trabalha efetivamente em equipe</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🎯</div>
+                    <h3 class="value-title editable" data-field="value3-title">Foco em Resultados</h3>
+                    <p class="value-desc editable" data-field="value3-desc">Sempre busca superar expectativas</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">💡</div>
+                    <h3 class="value-title editable" data-field="value4-title">Inovação</h3>
+                    <p class="value-desc editable" data-field="value4-desc">Propõe soluções criativas e eficientes</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-decoration">
+                <i class="fas fa-award"></i>
+            </div>
+            <p class="footer-text editable" data-field="footer">Reconhecimento merecido por uma trajetória de sucesso</p>
+        </footer>
+    </div>
+
+    <!-- Edit Mode Toggle (for customization) -->
+    <div class="edit-controls" id="editControls" style="display: none;">
+        <button class="edit-btn" id="toggleEdit">
+            <i class="fas fa-edit"></i> Editar
+        </button>
+        <button class="save-btn" id="saveChanges">
+            <i class="fas fa-save"></i> Salvar
+        </button>
+        <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+        <input type="file" id="musicUpload" accept="audio/*" style="display: none;">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celebração de Amizade - Memória Digital</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Audio Background -->
+    <audio id="backgroundMusic" loop>
+        <source src="party-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Music Control -->
+    <div class="music-control">
+        <button id="musicToggle" class="music-btn">
+            <i class="fas fa-music"></i>
+        </button>
+    </div>
+
+    <!-- Confetti Animation -->
+    <div class="confetti-container" id="confettiContainer"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="party-decoration">
+                <img src="party-decoration.png" alt="Decoração" class="decoration-img">
+            </div>
+            <h1 class="main-title editable" data-field="title">Parabéns, Amigo!</h1>
+            <p class="subtitle editable" data-field="subtitle">Celebrando nossa amizade especial</p>
+            <div class="celebration-emoji">🎉🎂🎈</div>
+        </header>
+
+        <!-- Fun Facts Section -->
+        <section class="fun-facts">
+            <h2 class="section-title editable" data-field="facts-title">Fatos Divertidos Sobre Nossa Amizade</h2>
+            <div class="facts-grid">
+                <div class="fact-card">
+                    <div class="fact-icon">🤝</div>
+                    <h3 class="fact-title editable" data-field="fact1-title">Amigos há</h3>
+                    <p class="fact-value editable" data-field="fact1-value">3 anos</p>
+                    <p class="fact-desc editable" data-field="fact1-desc">E contando!</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">😂</div>
+                    <h3 class="fact-title editable" data-field="fact2-title">Risadas compartilhadas</h3>
+                    <p class="fact-value editable" data-field="fact2-value">Infinitas</p>
+                    <p class="fact-desc editable" data-field="fact2-desc">E sempre aumentando!</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">🍕</div>
+                    <h3 class="fact-title editable" data-field="fact3-title">Pizzas divididas</h3>
+                    <p class="fact-value editable" data-field="fact3-value">127</p>
+                    <p class="fact-desc editable" data-field="fact3-desc">Aproximadamente!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Gallery Section -->
+        <section class="photo-gallery">
+            <h2 class="section-title editable" data-field="gallery-title">Nossos Momentos Inesquecíveis</h2>
+            <div class="gallery-grid">
+                <div class="photo-item">
+                    <img src="friends-celebration.png" alt="Foto 1" class="gallery-img editable-image" data-field="photo1">
+                    <div class="photo-overlay">
+                        <p class="photo-caption editable" data-field="caption1">Primeira aventura juntos</p>
+                        <div class="photo-emoji">📸</div>
+                    </div>
+                </div>
+                <div class="photo-item">
+                    <img src="friends-celebration.png" alt="Foto 2" class="gallery-img editable-image" data-field="photo2">
+                    <div class="photo-overlay">
+                        <p class="photo-caption editable" data-field="caption2">Festa épica!</p>
+                        <div class="photo-emoji">🎉</div>
+                    </div>
+                </div>
+                <div class="photo-item">
+                    <img src="friends-celebration.png" alt="Foto 3" class="gallery-img editable-image" data-field="photo3">
+                    <div class="photo-overlay">
+                        <p class="photo-caption editable" data-field="caption3">Amigos para sempre</p>
+                        <div class="photo-emoji">👫</div>
+                    </div>
+                </div>
+                <div class="photo-item">
+                    <img src="friends-celebration.png" alt="Foto 4" class="gallery-img editable-image" data-field="photo4">
+                    <div class="photo-overlay">
+                        <p class="photo-caption editable" data-field="caption4">Mais uma lembrança</p>
+                        <div class="photo-emoji">🌟</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Message Section -->
+        <section class="message-section">
+            <div class="message-card">
+                <h2 class="message-title editable" data-field="message-title">Uma Mensagem Especial Para Você</h2>
+                <div class="message-content">
+                    <p class="message-text editable" data-field="message">
+                        Amigo, você é uma das pessoas mais incríveis que já conheci! 
+                        Sua amizade trouxe tanta alegria, risadas e momentos especiais para minha vida. 
+                        Obrigado por estar sempre presente, por me apoiar nos momentos difíceis e 
+                        por celebrar comigo nos momentos felizes. Que nossa amizade continue crescendo 
+                        e que possamos criar muitas outras memórias juntos!
+                    </p>
+                </div>
+                <div class="signature">
+                    <p class="signature-text editable" data-field="signature">Com carinho, [Seu Nome] 💙</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Memories Timeline -->
+        <section class="timeline-section">
+            <h2 class="section-title editable" data-field="timeline-title">Nossa Linha do Tempo da Amizade</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">🌟</div>
+                    <div class="timeline-content">
+                        <div class="timeline-date editable" data-field="date1">Janeiro 2021</div>
+                        <h3 class="timeline-event editable" data-field="event1">Nos Conhecemos</h3>
+                        <p class="timeline-description editable" data-field="desc1">O início de uma grande amizade</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">🎮</div>
+                    <div class="timeline-content">
+                        <div class="timeline-date editable" data-field="date2">Março 2021</div>
+                        <h3 class="timeline-event editable" data-field="event2">Primeira Aventura</h3>
+                        <p class="timeline-description editable" data-field="desc2">Descobrimos que temos muito em comum</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">🎂</div>
+                    <div class="timeline-content">
+                        <div class="timeline-date editable" data-field="date3">Hoje</div>
+                        <h3 class="timeline-event editable" data-field="event3">Celebrando Você</h3>
+                        <p class="timeline-description editable" data-field="desc3">E muitas aventuras ainda estão por vir!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wishes Section -->
+        <section class="wishes-section">
+            <h2 class="section-title editable" data-field="wishes-title">Meus Desejos Para Você</h2>
+            <div class="wishes-grid">
+                <div class="wish-card">
+                    <div class="wish-icon">🌈</div>
+                    <p class="wish-text editable" data-field="wish1">Que sua vida seja sempre colorida e cheia de alegria</p>
+                </div>
+                <div class="wish-card">
+                    <div class="wish-icon">⭐</div>
+                    <p class="wish-text editable" data-field="wish2">Que todos os seus sonhos se realizem</p>
+                </div>
+                <div class="wish-card">
+                    <div class="wish-icon">🎯</div>
+                    <p class="wish-text editable" data-field="wish3">Que você alcance todos os seus objetivos</p>
+                </div>
+                <div class="wish-card">
+                    <div class="wish-icon">💫</div>
+                    <p class="wish-text editable" data-field="wish4">Que nossa amizade dure para sempre</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="party-animation">
+                <i class="fas fa-birthday-cake"></i>
+            </div>
+            <p class="footer-text editable" data-field="footer">Feito com muito carinho para um amigo especial! 🎉</p>
+        </footer>
+    </div>
+
+    <!-- Edit Mode Toggle (for customization) -->
+    <div class="edit-controls" id="editControls" style="display: none;">
+        <button class="edit-btn" id="toggleEdit">
+            <i class="fas fa-edit"></i> Editar
+        </button>
+        <button class="save-btn" id="saveChanges">
+            <i class="fas fa-save"></i> Salvar
+        </button>
+        <button class="confetti-btn" id="triggerConfetti">
+            <i class="fas fa-star"></i> Confetti
+        </button>
+        <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+        <input type="file" id="musicUpload" accept="audio/*" style="display: none;">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
