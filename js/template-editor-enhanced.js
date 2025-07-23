@@ -304,17 +304,17 @@ class EnhancedTemplateEditor {
         });
 
         // Color controls with immediate preview update
-        document.getElementById("backgroundColor").addEventListener("input", (e) => {
+        document.getElementById('backgroundColor').addEventListener('change', (e) => {
             this.templateData.colors.background = e.target.value;
             this.updatePreview();
         });
 
-        document.getElementById("titleColor").addEventListener("input", (e) => {
+        document.getElementById('titleColor').addEventListener('change', (e) => {
             this.templateData.colors.title = e.target.value;
             this.updatePreview();
         });
 
-        document.getElementById("textColor").addEventListener("input", (e) => {
+        document.getElementById('textColor').addEventListener('change', (e) => {
             this.templateData.colors.text = e.target.value;
             this.updatePreview();
         });
@@ -708,50 +708,63 @@ class EnhancedTemplateEditor {
     }
 
     async createZipPackage(html, fileName) {
-        const zip = new JSZip();
-        zip.file(`${fileName}.html`, html);
-
-        // Add CSS
-        const cssResponse = await fetch(`templates/${this.currentTemplate}/style.css`);
-        const cssContent = await cssResponse.text();
-        zip.file(`css/style.css`, cssContent);
-
-        // Add JS
-        const jsResponse = await fetch(`templates/${this.currentTemplate}/script.js`);
-        const jsContent = await jsResponse.text();
-        zip.file(`js/script.js`, jsContent);
-
-        // Add images
-        for (const img of this.templateData.images) {
-            const response = await fetch(img.url);
-            const blob = await response.blob();
-            zip.file(`images/${img.name}`, blob);
-        }
-
-        for (const img of this.templateData.customImages) {
-            const response = await fetch(img.url);
-            const blob = await response.blob();
-            zip.file(`images/${img.name}`, blob);
-        }
-
-        // Add videos
-        for (const video of this.templateData.videos) {
-            const response = await fetch(video.url);
-            const blob = await response.blob();
-            zip.file(`videos/${video.name}`, blob);
-        }
-
-        // Add music
-        if (this.templateData.music) {
-            const response = await fetch(this.templateData.music.url);
-            const blob = await response.blob();
-            zip.file(`music/${this.templateData.music.name}`, blob);
-        }
-
-        return await zip.generateAsync({ type: "blob" });
+        // Simple implementation without JSZip - create a single HTML file with embedded assets
+        const completeHTML = await this.embedAssetsInHTML(html);
+        const blob = new Blob([completeHTML], { type: 'text/html' });
+        return blob;
     }
 
+    async embedAssetsInHTML(html) {
+        let completeHTML = html;
+        
+        // Embed CSS
+        try {
+            const cssResponse = await fetch(`templates/${this.currentTemplate}/style.css`);
+            const cssContent = await cssResponse.text();
+            const customCSS = this.generateCustomCSS();
+            
+            completeHTML = completeHTML.replace(
+                '<link rel="stylesheet" href="style.css">',
+                `<style>${cssContent}\n\n/* Custom Styles */\n${customCSS}</style>`
+            );
+        } catch (error) {
+            console.warn('Erro ao carregar CSS:', error);
+        }
 
+        // Embed JavaScript
+        try {
+            const jsResponse = await fetch(`templates/${this.currentTemplate}/script.js`);
+            const jsContent = await jsResponse.text();
+            
+            completeHTML = completeHTML.replace(
+                '<script src="script.js"></script>',
+                `<script>${jsContent}</script>`
+            );
+        } catch (error) {
+            console.warn('Erro ao carregar JavaScript:', error);
+        }
+
+        // Embed images as base64
+        this.templateData.images.forEach((img, index) => {
+            const placeholder = `{{image${index + 1}}}`;
+            completeHTML = completeHTML.replace(placeholder, img.url);
+        });
+
+        this.templateData.customImages.forEach((img) => {
+            const placeholder = `{{${img.id}}}`;
+            completeHTML = completeHTML.replace(placeholder, img.url);
+        });
+
+        // Embed music
+        if (this.templateData.music) {
+            completeHTML = completeHTML.replace(
+                'src="romantic-music.mp3"',
+                `src="${this.templateData.music.url}"`
+            );
+        }
+
+        return completeHTML;
+    }
 
     async generateCompleteHTML() {
         // Get the current template HTML
@@ -764,32 +777,94 @@ class EnhancedTemplateEditor {
         html = html.replace(/{{message}}/g, this.templateData.message);
 
         // Add custom texts
-        let customTextsHTML = 
+        let customTextsHTML = '';
         this.templateData.customTexts.forEach((text) => {
             const className = `custom-text-${text.style}`;
             customTextsHTML += `<div class="${className}">${text.content}</div>\n`;
         });
 
         // Add custom images
-        let customImagesHTML = 
+        let customImagesHTML = '';
         this.templateData.customImages.forEach((img) => {
-            customImagesHTML += `<div class="custom-image"><img src="images/${img.name}" alt="${img.name}"></div>\n`;
+            customImagesHTML += `<div class="custom-image"><img src="{{${img.id}}}" alt="${img.name}"></div>\n`;
         });
 
         // Insert custom content before the footer
-        const footerIndex = html.indexOf("<footer");
+        const footerIndex = html.indexOf('<footer');
         if (footerIndex !== -1) {
             html = html.slice(0, footerIndex) + customTextsHTML + customImagesHTML + html.slice(footerIndex);
         }
-
-        // Add custom CSS
-        const customCSS = this.generateCustomCSS();
-        html = html.replace(
-            "</head>",
-            `<style>${customCSS}</style>\n</head>`
-        );
         
         return html;
+    }
+
+    generateCustomCSS() {
+        return `
+            :root {
+                --bg-color: ${this.templateData.colors.background};
+                --title-color: ${this.templateData.colors.title};
+                --text-color: ${this.templateData.colors.text};
+                --title-font: '${this.templateData.fonts.title}', cursive;
+                --text-font: '${this.templateData.fonts.text}', sans-serif;
+                --title-size: ${this.templateData.sizes.title}px;
+                --text-size: ${this.templateData.sizes.text}px;
+            }
+            
+            body {
+                background: var(--bg-color) !important;
+                font-family: var(--text-font);
+                font-size: var(--text-size);
+                color: var(--text-color);
+            }
+            
+            .main-title, h1 {
+                font-family: var(--title-font) !important;
+                font-size: var(--title-size) !important;
+                color: var(--title-color) !important;
+            }
+            
+            .custom-text-normal {
+                font-size: var(--text-size);
+                color: var(--text-color);
+                margin: 15px 0;
+                padding: 10px;
+            }
+            
+            .custom-text-title {
+                font-family: var(--title-font);
+                font-size: calc(var(--title-size) * 0.8);
+                color: var(--title-color);
+                margin: 20px 0;
+                text-align: center;
+            }
+            
+            .custom-text-subtitle {
+                font-size: calc(var(--text-size) * 1.2);
+                color: var(--title-color);
+                margin: 15px 0;
+                text-align: center;
+            }
+            
+            .custom-text-caption {
+                font-size: calc(var(--text-size) * 0.9);
+                color: var(--text-color);
+                font-style: italic;
+                margin: 10px 0;
+            }
+            
+            .custom-image {
+                text-align: center;
+                margin: 20px 0;
+            }
+            
+            .custom-image img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }
+        `;
+    }
 
     async downloadPDF(fileName) {
         alert('Funcionalidade de PDF em desenvolvimento');

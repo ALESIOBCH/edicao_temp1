@@ -1,0 +1,484 @@
+/* Enhanced Responsive Design for Template Editor */
+
+/* Base responsive improvements */
+.editor-container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.editor-sidebar {
+    flex: 0 0 320px;
+    min-width: 280px;
+    max-width: 400px;
+    overflow-y: auto;
+    background: #f8fafc;
+    border-right: 1px solid #e2e8f0;
+}
+
+.editor-preview {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.preview-container {
+    flex: 1;
+    position: relative;
+    overflow: auto;
+    background: #f1f5f9;
+    padding: 20px;
+}
+
+.preview-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+/* Responsive preview modes */
+.preview-container.desktop iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+}
+
+.preview-container.tablet iframe {
+    width: 768px;
+    height: 1024px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.preview-container.mobile iframe {
+    width: 375px;
+    height: 667px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Draggable elements responsive behavior */
+.draggable-element {
+    position: absolute;
+    cursor: move;
+    border: 2px dashed transparent;
+    transition: all 0.2s ease;
+    min-width: 80px;
+    min-height: 40px;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+.draggable-element:hover {
+    border-color: #3b82f6;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.2);
+}
+
+.draggable-element.selected {
+    border-color: #ef4444;
+    border-style: solid;
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+}
+
+.draggable-element.dragging {
+    opacity: 0.8;
+    z-index: 1000;
+    transform: rotate(2deg);
+}
+
+/* Element controls responsive */
+.element-controls {
+    position: absolute;
+    top: -35px;
+    right: 0;
+    display: flex;
+    gap: 4px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 15;
+}
+
+.draggable-element:hover .element-controls,
+.draggable-element.selected .element-controls {
+    opacity: 1;
+}
+
+.element-control-btn {
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.element-control-btn:hover {
+    transform: scale(1.1);
+}
+
+.edit-btn {
+    background: #3b82f6;
+}
+
+.edit-btn:hover {
+    background: #2563eb;
+}
+
+.delete-btn {
+    background: #ef4444;
+}
+
+.delete-btn:hover {
+    background: #dc2626;
+}
+
+/* Resize handle responsive */
+.resize-handle {
+    position: absolute;
+    bottom: -6px;
+    right: -6px;
+    width: 12px;
+    height: 12px;
+    background: #3b82f6;
+    cursor: se-resize;
+    border-radius: 3px;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+.resize-handle:hover {
+    background: #2563eb;
+    transform: scale(1.2);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 1024px) {
+    .editor-container {
+        flex-direction: column;
+    }
+    
+    .editor-sidebar {
+        flex: 0 0 auto;
+        max-height: 40vh;
+        min-width: auto;
+        max-width: none;
+        border-right: none;
+        border-bottom: 1px solid #e2e8f0;
+    }
+    
+    .sidebar-content {
+        max-height: 35vh;
+        overflow-y: auto;
+    }
+    
+    .editor-preview {
+        flex: 1;
+        min-height: 60vh;
+    }
+    
+    .preview-container {
+        padding: 10px;
+    }
+    
+    .preview-container.tablet iframe,
+    .preview-container.mobile iframe {
+        width: 100%;
+        height: auto;
+        min-height: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .editor-sidebar {
+        max-height: 35vh;
+    }
+    
+    .sidebar-content {
+        max-height: 30vh;
+    }
+    
+    .editor-preview {
+        min-height: 65vh;
+    }
+    
+    .draggable-element {
+        min-width: 60px;
+        min-height: 30px;
+    }
+    
+    .element-controls {
+        top: -30px;
+    }
+    
+    .element-control-btn {
+        width: 24px;
+        height: 24px;
+        font-size: 10px;
+    }
+    
+    .resize-handle {
+        width: 10px;
+        height: 10px;
+        bottom: -5px;
+        right: -5px;
+    }
+    
+    .preview-header {
+        padding: 10px;
+    }
+    
+    .preview-controls {
+        gap: 5px;
+    }
+    
+    .btn-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .editor-sidebar {
+        max-height: 30vh;
+    }
+    
+    .sidebar-content {
+        max-height: 25vh;
+        padding: 10px;
+    }
+    
+    .editor-preview {
+        min-height: 70vh;
+    }
+    
+    .preview-container {
+        padding: 5px;
+    }
+    
+    .draggable-element {
+        min-width: 50px;
+        min-height: 25px;
+    }
+    
+    .element-controls {
+        top: -25px;
+        gap: 2px;
+    }
+    
+    .element-control-btn {
+        width: 20px;
+        height: 20px;
+        font-size: 8px;
+    }
+    
+    .form-group {
+        margin-bottom: 10px;
+    }
+    
+    .form-label {
+        font-size: 12px;
+    }
+    
+    .form-input,
+    .form-select,
+    .form-textarea {
+        font-size: 14px;
+        padding: 6px;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}
+
+/* Template content responsive enhancements */
+.preview-container iframe {
+    transition: all 0.3s ease;
+}
+
+/* Smooth transitions for mode changes */
+.preview-container.desktop,
+.preview-container.tablet,
+.preview-container.mobile {
+    transition: all 0.3s ease;
+}
+
+/* Enhanced drag and drop visual feedback */
+.drop-zone {
+    position: absolute;
+    border: 3px dashed #3b82f6;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 12px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    color: #3b82f6;
+    font-weight: 600;
+    font-size: 16px;
+    z-index: 20;
+    backdrop-filter: blur(4px);
+    animation: pulse 2s infinite;
+}
+
+.drop-zone.active {
+    display: flex;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.02);
+    }
+}
+
+/* Improved sidebar scrolling */
+.sidebar-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar-content::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Enhanced property panel */
+.element-properties {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.property-group {
+    margin-bottom: 16px;
+    padding: 12px;
+    background: white;
+    border-radius: 6px;
+    border: 1px solid #f1f5f9;
+}
+
+.property-group:last-child {
+    margin-bottom: 0;
+}
+
+.property-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 6px;
+}
+
+.property-input,
+.property-range {
+    width: 100%;
+    transition: all 0.2s ease;
+}
+
+.property-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Loading states and animations */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+    position: relative;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #3b82f6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Accessibility improvements */
+.draggable-element:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+.element-control-btn:focus {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .draggable-element {
+        border-width: 3px;
+    }
+    
+    .draggable-element:hover {
+        border-color: #000;
+    }
+    
+    .draggable-element.selected {
+        border-color: #ff0000;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .draggable-element,
+    .element-control-btn,
+    .resize-handle,
+    .drop-zone,
+    .preview-container iframe {
+        transition: none;
+    }
+    
+    .loading::after {
+        animation: none;
+    }
+    
+    .drop-zone {
+        animation: none;
+    }
+}
+

@@ -243,15 +243,6 @@ class RomanticTemplate {
                 galleryImg.alt = img.name;
             }
         });
-
-        // Update custom images
-        data.customImages.forEach((img) => {
-            const customImgElement = document.querySelector(`.custom-image img[src="{{${img.id}}}"]`);
-            if (customImgElement) {
-                customImgElement.src = img.url;
-                customImgElement.alt = img.name;
-            }
-        });
     }
 
     updateMusic(data) {
