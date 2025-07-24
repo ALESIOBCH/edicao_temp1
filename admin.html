@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administração - Memória Digital</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Header -->
+        <header class="admin-header">
+            <div class="header-content">
+                <h1 class="admin-title">
+                    <i class="fas fa-cog"></i>
+                    Painel de Administração
+                </h1>
+                <p class="admin-subtitle">Gerencie os templates de lembranças digitais</p>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="admin-nav">
+            <div class="nav-content">
+                <button class="nav-btn active" data-section="templates">
+                    <i class="fas fa-palette"></i>
+                    Templates
+                </button>
+                <button class="nav-btn" data-section="clients">
+                    <i class="fas fa-users"></i>
+                    Clientes
+                </button>
+                <button class="nav-btn" data-section="settings">
+                    <i class="fas fa-settings"></i>
+                    Configurações
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Templates Section -->
+            <section id="templates-section" class="admin-section active">
+                <div class="section-header">
+                    <h2 class="section-title">Gerenciar Templates</h2>
+                    <button class="btn-primary" id="createTemplate">
+                        <i class="fas fa-plus"></i>
+                        Novo Template
+                    </button>
+                </div>
+
+                <div class="templates-grid">
+                    <!-- Template Romântico -->
+                    <div class="template-card" data-template="romantico">
+                        <div class="template-preview">
+                            <img src="templates/romantico/bg-romantic.jpg" alt="Template Romântico" class="template-img">
+                            <div class="template-overlay">
+                                <button class="btn-edit" data-template="romantico">
+                                    <i class="fas fa-edit"></i>
+                                    Editar
+                                </button>
+                                <button class="btn-preview" data-template="romantico">
+                                    <i class="fas fa-eye"></i>
+                                    Visualizar
+                                </button>
+                            </div>
+                        </div>
+                        <div class="template-info">
+                            <h3 class="template-name">Template Romântico</h3>
+                            <p class="template-desc">Ideal para aniversários de namoro e momentos românticos</p>
+                            <div class="template-stats">
+                                <span class="stat">
+                                    <i class="fas fa-heart"></i>
+                                    Romântico
+                                </span>
+                                <span class="stat">
+                                    <i class="fas fa-users"></i>
+                                    12 usos
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Template Amizade -->
+                    <div class="template-card" data-template="amizade">
+                        <div class="template-preview">
+                            <img src="templates/amizade/bg-friendship.jpg" alt="Template Amizade" class="template-img">
+                            <div class="template-overlay">
+                                <button class="btn-edit" data-template="amizade">
+                                    <i class="fas fa-edit"></i>
+                                    Editar
+                                </button>
+                                <button class="btn-preview" data-template="amizade">
+                                    <i class="fas fa-eye"></i>
+                                    Visualizar
+                                </button>
+                            </div>
+                        </div>
+                        <div class="template-info">
+                            <h3 class="template-name">Template Amizade</h3>
+                            <p class="template-desc">Perfeito para celebrar aniversários de amigos</p>
+                            <div class="template-stats">
+                                <span class="stat">
+                                    <i class="fas fa-smile"></i>
+                                    Divertido
+                                </span>
+                                <span class="stat">
+                                    <i class="fas fa-users"></i>
+                                    8 usos
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Template Profissional -->
+                    <div class="template-card" data-template="profissional">
+                        <div class="template-preview">
+                            <img src="templates/profissional/bg-professional.jpg" alt="Template Profissional" class="template-img">
+                            <div class="template-overlay">
+                                <button class="btn-edit" data-template="profissional">
+                                    <i class="fas fa-edit"></i>
+                                    Editar
+                                </button>
+                                <button class="btn-preview" data-template="profissional">
+                                    <i class="fas fa-eye"></i>
+                                    Visualizar
+                                </button>
+                            </div>
+                        </div>
+                        <div class="template-info">
+                            <h3 class="template-name">Template Profissional</h3>
+                            <p class="template-desc">Ideal para reconhecimento de funcionários</p>
+                            <div class="template-stats">
+                                <span class="stat">
+                                    <i class="fas fa-briefcase"></i>
+                                    Corporativo
+                                </span>
+                                <span class="stat">
+                                    <i class="fas fa-users"></i>
+                                    5 usos
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Clients Section -->
+            <section id="clients-section" class="admin-section">
+                <div class="section-header">
+                    <h2 class="section-title">Gerenciar Clientes</h2>
+                    <button class="btn-primary" id="addClient">
+                        <i class="fas fa-user-plus"></i>
+                        Novo Cliente
+                    </button>
+                </div>
+
+                <div class="clients-table">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Email</th>
+                                <th>Template</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="clientsTableBody">
+                            <tr>
+                                <td>João Silva</td>
+                                <td>joao@email.com</td>
+                                <td>Romântico</td>
+                                <td><span class="status active">Ativo</span></td>
+                                <td>
+                                    <button class="btn-icon" title="Editar">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-icon" title="Visualizar">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn-icon danger" title="Excluir">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Maria Santos</td>
+                                <td>maria@email.com</td>
+                                <td>Amizade</td>
+                                <td><span class="status pending">Pendente</span></td>
+                                <td>
+                                    <button class="btn-icon" title="Editar">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-icon" title="Visualizar">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn-icon danger" title="Excluir">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings-section" class="admin-section">
+                <div class="section-header">
+                    <h2 class="section-title">Configurações do Sistema</h2>
+                </div>
+
+                <div class="settings-grid">
+                    <div class="setting-card">
+                        <h3 class="setting-title">
+                            <i class="fas fa-palette"></i>
+                            Aparência
+                        </h3>
+                        <div class="setting-content">
+                            <label class="setting-label">
+                                Tema do Sistema
+                                <select class="setting-input">
+                                    <option value="light">Claro</option>
+                                    <option value="dark">Escuro</option>
+                                    <option value="auto">Automático</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="setting-card">
+                        <h3 class="setting-title">
+                            <i class="fas fa-envelope"></i>
+                            Notificações
+                        </h3>
+                        <div class="setting-content">
+                            <label class="setting-checkbox">
+                                <input type="checkbox" checked>
+                                <span class="checkmark"></span>
+                                Email de novos clientes
+                            </label>
+                            <label class="setting-checkbox">
+                                <input type="checkbox" checked>
+                                <span class="checkmark"></span>
+                                Relatórios semanais
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="setting-card">
+                        <h3 class="setting-title">
+                            <i class="fas fa-shield-alt"></i>
+                            Segurança
+                        </h3>
+                        <div class="setting-content">
+                            <button class="btn-secondary">
+                                <i class="fas fa-key"></i>
+                                Alterar Senha
+                            </button>
+                            <button class="btn-secondary">
+                                <i class="fas fa-download"></i>
+                                Backup dos Dados
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal para edição de template -->
+    <div id="templateModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Editar Template</h3>
+                <button class="modal-close" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Nome do Template</label>
+                    <input type="text" class="form-input" id="templateName" placeholder="Digite o nome do template">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Descrição</label>
+                    <textarea class="form-input" id="templateDesc" placeholder="Descreva o template"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Categoria</label>
+                    <select class="form-input" id="templateCategory">
+                        <option value="romantico">Romântico</option>
+                        <option value="amizade">Amizade</option>
+                        <option value="profissional">Profissional</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="cancelEdit">Cancelar</button>
+                <button class="btn-primary" id="saveTemplate">Salvar Alterações</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para novo cliente -->
+    <div id="clientModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Novo Cliente</h3>
+                <button class="modal-close" id="closeClientModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Nome Completo</label>
+                    <input type="text" class="form-input" id="clientName" placeholder="Digite o nome do cliente">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" id="clientEmail" placeholder="Digite o email do cliente">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Template</label>
+                    <select class="form-input" id="clientTemplate">
+                        <option value="romantico">Template Romântico</option>
+                        <option value="amizade">Template Amizade</option>
+                        <option value="profissional">Template Profissional</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Observações</label>
+                    <textarea class="form-input" id="clientNotes" placeholder="Observações sobre o cliente"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="cancelClient">Cancelar</button>
+                <button class="btn-primary" id="saveClient">Criar Cliente</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
+

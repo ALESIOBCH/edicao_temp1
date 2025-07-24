@@ -1,0 +1,72 @@
+$ git add .
+warning: in the working copy of 'GUIA_DE_USO.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'css/admin.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'css/template-selector.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'js/admin.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'js/template-selector.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'template-selector.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'templates/amizade/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'templates/amizade/script.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'templates/amizade/style.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'templates/profissional/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'templates/profissional/script.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'templates/profissional/style.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'templates/romantico/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'templates/romantico/script.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'templates/romantico/style.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'admin.html', LF will be replaced by CRLF the next time Git touches it 
+error: 'admin_system/' does not have a commit checked out
+fatal: adding files failed
+
+User@DESKTOP-MGFPIR7 MINGW64 ~/Desktop/mamoria_templaites (main)
+$ git commit -m "Descrição das alterações"
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        admin.html
+        admin_system/
+        css/example-style.css
+        css/style.css
+        css/template-editor.css
+        html/
+        images/
+        js/example-script.js
+        js/script.js
+        js/template-editor.js
+        memoria_digital_admin_templates(1).zip
+        template-editor.html
+        test_results.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+User@DESKTOP-MGFPIR7 MINGW64 ~/Desktop/mamoria_templaites (main)
+$ git config --global core.autocrlf true
+
+User@DESKTOP-MGFPIR7 MINGW64 ~/Desktop/mamoria_templaites (main)
+$ git add .
+git commit -m "Initial commit for admin_system"
+warning: in the working copy of 'admin.html', LF will be replaced by CRLF the next time Git touches it
+error: 'admin_system/' does not have a commit checked out
+fatal: adding files failed
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        admin.html
+        admin_system/
+        css/example-style.css
+        css/style.css
+        css/template-editor.css
+        html/
+        images/
+        js/example-script.js
+        js/script.js
+        js/template-editor.js
+        memoria_digital_admin_templates(1).zip
+        template-editor.html
+        test_results.md

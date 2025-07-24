@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha seu Template - Memória Digital</title>
+    <link rel="stylesheet" href="css/template-selector.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="selector-container">
+        <!-- Header -->
+        <header class="selector-header">
+            <div class="header-content">
+                <a href="index.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i>
+                    Voltar
+                </a>
+                <h1 class="selector-title">Escolha seu Template</h1>
+                <p class="selector-subtitle">Selecione o template perfeito para sua lembrança digital</p>
+            </div>
+        </header>
+
+        <!-- Templates Grid -->
+        <main class="templates-container">
+            <div class="templates-grid">
+                <!-- Template Romântico -->
+                <div class="template-option" data-template="romantico">
+                    <div class="template-preview">
+                        <img src="templates/romantico/bg-romantic.jpg" alt="Template Romântico" class="template-bg">
+                        <div class="template-overlay">
+                            <div class="template-content">
+                                <h2 class="template-title">Template Romântico</h2>
+                                <p class="template-description">
+                                    Perfeito para aniversários de namoro, declarações de amor e momentos especiais a dois.
+                                    Com cores suaves e elementos românticos.
+                                </p>
+                                <div class="template-features">
+                                    <span class="feature">
+                                        <i class="fas fa-heart"></i>
+                                        Romântico
+                                    </span>
+                                    <span class="feature">
+                                        <i class="fas fa-images"></i>
+                                        Galeria de fotos
+                                    </span>
+                                    <span class="feature">
+                                        <i class="fas fa-music"></i>
+                                        Música de fundo
+                                    </span>
+                                </div>
+                                <button class="select-template-btn" data-template="romantico">
+                                    <i class="fas fa-check"></i>
+                                    Escolher Template
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <h3 class="info-title">Ideal para:</h3>
+                        <ul class="info-list">
+                            <li>Aniversários de namoro</li>
+                            <li>Declarações de amor</li>
+                            <li>Pedidos de casamento</li>
+                            <li>Datas especiais do casal</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Template Amizade -->
+                <div class="template-option" data-template="amizade">
+                    <div class="template-preview">
+                        <img src="templates/amizade/bg-friendship.jpg" alt="Template Amizade" class="template-bg">
+                        <div class="template-overlay">
+                            <div class="template-content">
+                                <h2 class="template-title">Template Amizade</h2>
+                                <p class="template-description">
+                                    Ideal para celebrar aniversários de amigos, formaturas e momentos divertidos.
+                                    Com cores vibrantes e elementos festivos.
+                                </p>
+                                <div class="template-features">
+                                    <span class="feature">
+                                        <i class="fas fa-smile"></i>
+                                        Divertido
+                                    </span>
+                                    <span class="feature">
+                                        <i class="fas fa-images"></i>
+                                        Galeria de fotos
+                                    </span>
+                                    <span class="feature">
+                                        <i class="fas fa-star"></i>
+                                        Animações
+                                    </span>
+                                </div>
+                                <button class="select-template-btn" data-template="amizade">
+                                    <i class="fas fa-check"></i>
+                                    Escolher Template
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <h3 class="info-title">Ideal para:</h3>
+                        <ul class="info-list">
+                            <li>Aniversários de amigos</li>
+                            <li>Formaturas</li>
+                            <li>Celebrações em grupo</li>
+                            <li>Momentos divertidos</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Template Profissional -->
+                <div class="template-option" data-template="profissional">
+                    <div class="template-preview">
+                        <img src="templates/profissional/bg-professional.jpg" alt="Template Profissional" class="template-bg">
+                        <div class="template-overlay">
+                            <div class="template-content">
+                                <h2 class="template-title">Template Profissional</h2>
+                                <p class="template-description">
+                                    Perfeito para reconhecimento de funcionários, conquistas profissionais e eventos corporativos.
+                                    Com design elegante e sofisticado.
+                                </p>
+                                <div class="template-features">
+                                    <span class="feature">
+                                        <i class="fas fa-briefcase"></i>
+                                        Corporativo
+                                    </span>
+                                    <span class="feature">
+                                        <i class="fas fa-award"></i>
+                                        Conquistas
+                                    </span>
+                                    <span class="feature">
+                                        <i class="fas fa-chart-line"></i>
+                                        Estatísticas
+                                    </span>
+                                </div>
+                                <button class="select-template-btn" data-template="profissional">
+                                    <i class="fas fa-check"></i>
+                                    Escolher Template
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <h3 class="info-title">Ideal para:</h3>
+                        <ul class="info-list">
+                            <li>Reconhecimento de funcionários</li>
+                            <li>Conquistas profissionais</li>
+                            <li>Eventos corporativos</li>
+                            <li>Aposentadorias</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Preview Modal -->
+        <div id="previewModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Visualizar Template</h3>
+                    <button class="modal-close" id="closePreview">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <iframe id="templatePreview" src="" frameborder="0"></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-secondary" id="closePreviewBtn">Fechar</button>
+                    <button class="btn-primary" id="selectFromPreview">Escolher Este Template</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Form Modal -->
+        <div id="contactModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Solicitar Lembrança Digital</h3>
+                    <button class="modal-close" id="closeContact">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label class="form-label">Nome Completo *</label>
+                            <input type="text" class="form-input" id="clientName" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email *</label>
+                            <input type="email" class="form-input" id="clientEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Telefone</label>
+                            <input type="tel" class="form-input" id="clientPhone">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Template Escolhido</label>
+                            <input type="text" class="form-input" id="selectedTemplate" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Ocasião/Evento</label>
+                            <input type="text" class="form-input" id="eventType" placeholder="Ex: Aniversário de namoro, Aniversário de amigo...">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Mensagem/Observações</label>
+                            <textarea class="form-input" id="clientMessage" rows="4" placeholder="Conte-nos mais sobre sua lembrança digital..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-checkbox">
+                                <input type="checkbox" id="agreeTerms" required>
+                                <span class="checkmark"></span>
+                                Concordo com os termos de uso e política de privacidade
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-secondary" id="cancelContact">Cancelar</button>
+                    <button class="btn-primary" id="submitContact">Enviar Solicitação</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/template-selector.js"></script>
+</body>
+</html>
+
